@@ -1,0 +1,9 @@
+<?php
+
+/**
+* Classe 
+*/
+
+class Footer{
+
+}

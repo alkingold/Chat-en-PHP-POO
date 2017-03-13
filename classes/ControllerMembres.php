@@ -1,7 +1,9 @@
 <?php
 
-require 'ManagerMembres.php';
+session_start();
+
 require 'Membre.php';
+require 'ManagerMembres.php';
 
 class ControllerMembres{
 

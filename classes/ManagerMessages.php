@@ -1,27 +1,32 @@
 <?php
 
+session_start();
+
+require 'Manager.php';
+
 class ManagerMessages extends Manager{
 
 	public function insertMessage(){
-		$query = $this->database->prepare('INSERT INTO message(idMembre, titre, contenu, dateAjout) VALUES(:idMembre, :titre, :contenu, now())');
-		$query->bindValue(':idMembre', $_SESSION['id']);
+		$query = $this->database->prepare('INSERT INTO message(idMembre, titre, message, dateAjout) VALUES(:idMembre, :titre, :message, now())');
+		$query->bindValue(':idMembre', $_SESSION['membre']['id']);
 		$query->bindValue(':titre', $_POST['titre']);
-		$query->bindValue(':contenu', $_POST['contenu']);
+		$query->bindValue(':message', $_POST['message']);
 		$query->execute();
-		return $query;
 	}
 
 	public function selectAllMessages(){
-		$query = $this->database->query('SELECT message.id, message.id_membre, message.titre, message.contenu, 
-			DATE_FORMAT(message.dateAjout, \'%d/%m/%Y %H:%i\') as date_fr, membre.pseudo, membre.id 
+		$query = $this->database->query('SELECT message.id, message.idMembre, message.titre, message.message, 
+			DATE_FORMAT(message.dateAjout, \'%d/%m/%Y à %H:%i\') as dateAjout, membre1.pseudo, membre1.id 
 			FROM message 
-			INNER JOIN membre ON membre.id = message.id_membre ORDER BY message.dateAjout DESC');
+			INNER JOIN membre1 ON membre1.id = message.idMembre ORDER BY message.dateAjout DESC');
 		return $query;
 	}
 
 	public function selectId($id){
 		$query = $this->database->prepare('SELECT * FROM message WHERE id = :id');
 		$query->bindValue(':id', $id, PDO::PARAM_INT);
+		$query->execute();
+		return $query;
 	}
 
 }

@@ -9,22 +9,22 @@ class Database{
 	/**
 	* @var string Nom de la base de données
 	*/
-	private static $_dbName = 'chat';
+	private static $_dbName = 'qes60591';
 
 	/**
 	* @var string Utilisateur de la base de données
 	*/
-	private static $_dbUser = 'root';
+	private static $_dbUser = 'qes60591';
 
 	/**
 	* @var string Mot de passe de la base de données
 	*/
-	private static $_dbPass = 'root';
+	private static $_dbPass = 'xVW8HiECnjf';
 
 	/**
 	* @var string Nom d'hôte de la base de données
 	*/
-	private static $_dbHost = 'localhost';
+	private static $_dbHost = 'cl1-sql22';
 
 	/**
 	* @var object L'instance de la connexion à la base de données

@@ -35,7 +35,15 @@
               }
               ?>
 	          </ul>
+
 	        </div>
+          <?php
+            if(isset($_SESSION['membre'])){
+          ?>
+            <span class="pull-right" style="color:#9d9d9d; padding-top:15px; padding-bottom:15px; float:right;">Bonjour <?= $_SESSION['membre']['pseudo']; ?></span>
+          <?php
+          }
+          ?>
 	        
 	      </div>
 	    </nav>
@@ -43,20 +51,23 @@
 
     <div class="container">
 
-      <div class="starter-template" style="padding-top:100px;">
+      <div class="starter-template" style="padding-top:70px;">
 
       <?= $content; ?>
 
       </div>
 
+      <div class="row"><div class="col-sm-12"><hr></div></div>
     </div><!-- /.container -->
 
   <footer>
-  	<div class="row">
-  		<div class="col-sm-12">
-  			<p class="text-center"><a href="#">Alexandra Bogdanova</a> - All rights reserved - 2017</p>
-  		</div>
-  	</div>
+    <div class="container">
+    	<div class="row">
+    		<div class="col-sm-12">
+    			<p class="text-center"><a href="#">Alexandra Bogdanova</a> - All rights reserved - 2017</p>
+    		</div>
+    	</div>
+    </div>
   </footer>
   </body>
 </html>

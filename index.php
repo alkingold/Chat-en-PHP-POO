@@ -16,7 +16,12 @@ $form->input('text', 'titre', "[éèëêœaàâäoôöuûüùîïça-zÀÄÂÔÖ
 $form->textarea('message', "[éèëêœaàâäoôöuûüùîïça-zÀÄÂÔÖÙÜÛÏÎÉÈËÊÇA-Z0-9 ,:;?.'-]{1,}", "Votre message doit contenir au moins 1 caractère : lettres, chiffres et signes de ponctuation", true);
 $form->submit('Envoyer', 'envoi');
 
-$content .= $form->getForm("classes/ControllerMessages.php");
+if(isset($_SESSION['membre'])){
+	$content .= $form->getForm("classes/ControllerMessages.php");
+}
+
+$messages = new ControllerMessages;
+$content .= $messages->afficherMessages();
 
 
 // $header = new Header('Ceci est un test de chat en PHP Orienté Objet', 'Chat en PHP Orienté Objet');
@@ -24,4 +29,4 @@ $content .= $form->getForm("classes/ControllerMessages.php");
 
 require 'template.php';
 
-var_dump($_SESSION);
+// var_dump($_SESSION);

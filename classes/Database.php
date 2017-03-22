@@ -9,22 +9,22 @@ class Database{
 	/**
 	* @var string Nom de la base de données
 	*/
-	private static $_dbName = 'qes60591';
+	private static $_dbName = '';
 
 	/**
 	* @var string Utilisateur de la base de données
 	*/
-	private static $_dbUser = 'qes60591';
+	private static $_dbUser = '';
 
 	/**
 	* @var string Mot de passe de la base de données
 	*/
-	private static $_dbPass = 'xVW8HiECnjf';
+	private static $_dbPass = '';
 
 	/**
 	* @var string Nom d'hôte de la base de données
 	*/
-	private static $_dbHost = 'cl1-sql22';
+	private static $_dbHost = '';
 
 	/**
 	* @var object L'instance de la connexion à la base de données
